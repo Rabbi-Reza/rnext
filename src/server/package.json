@@ -1,0 +1,19 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "A simple JSON Server",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx json-server data/todos.json -p 3001"
+    },
+    "keywords": [
+        "json",
+        "server",
+        "api"
+    ],
+    "author": "Sumit Saha",
+    "license": "MIT",
+    "dependencies": {
+        "json-server": "^0.17.4"
+    }
+}
