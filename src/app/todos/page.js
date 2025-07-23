@@ -13,7 +13,13 @@ export const getAllTodos = async (query) => {
     return finalTODOs;
 };
 
-export default async function Todos({ searchParams: { query } }) {
+export default async function Todos(props) {
+    const searchParams = await props.searchParams;
+
+    const {
+        query
+    } = searchParams;
+
     const tasks = await getAllTodos(query);
 
     return (
