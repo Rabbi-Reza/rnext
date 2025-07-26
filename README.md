@@ -1,374 +1,134 @@
-[![Youtube][youtube-shield]][youtube-url]
-[![Facebook][facebook-shield]][facebook-group-url]
+আপনাকে অনেক অনেক অভিনন্দন, কোর্স এর শেষ এসাইনমেন্ট এ আপনি পৌঁছে গিয়েছেন। আশা করি, রিয়্যাক্ট এবং Next.js সম্পর্কে আপনাদের অনেক ভাল একটি ধারণা হয়েছে । তাই, এই কোর্সে যা যা দেখানো হয়েছে, তার উপর ভিত্তি করে আপনাদের জন্যে এই এসাইনমেন্ট তৈরি করা হয়েছে। এই এসাইনমেন্ট এ Frontend এর কোড দিয়ে দেয়া হয়েছে, আপনাদের মডিউলে দেখানো পদ্ধতিতে Mongo Atlas ডেটাবেজ এবং API তৈরি করে পুরো এসাইনমেন্ট টি করতে হবে ।
 
-<!-- PROJECT LOGO -->
-<br />
- <p align="center">
-    <img src="https://avatars.githubusercontent.com/u/73503432?v=4" alt="Logo" width="80" height="80" />
-    <h3 align="center "><a href="https://learnwithsumit.com/rnext" target="_blank" >Reactive Accelerator</a></h3>
-</p>
+⚠️ **বিঃদ্রঃ** লার্ন উইথ সুমিত প্লাটফর্মের কোনো এসাইনমেন্ট বা প্রোজেক্ট বা টেম্পলেট কোনো ফ্রিতে/বাণিজ্যিক উদ্দেশ্যে কিংবা CV/Resume তে ব্যবহার করা থেকে বিরত থাকুন ।
 
-<!-- TABLE OF CONTENTS -->
+## এসাইনমেন্টে আপনাকে যা যা করতে হবেঃ
 
-## Table of Contents
+-   ইউজার Authentication Implement করতে হবে । এক্ষেত্রে Access Token এবং Refresh Token যথাযথ ভাবে কাজ করতে পারতে হবে ।
 
-| CODE RUN                   | OUTLINE                    | CONTACT                    |
-| -------------------------- | -------------------------- | -------------------------- |
-| [How to run](#-how-to-run) | [Outline](#-outline)       | [Contact us](#-contact-us) |
+-   আমাদের দেয়া login.html এবং register.html টেমপ্লেট ব্যবহার করে ইউজার কে লগইন এবং রেজিস্ট্রেশন করাতে হবে ।
 
-<!-- HOW TO RUN -->
+-   লগইন এবং রেজিস্ট্রেশন এর ক্ষেত্রে "Continue with Google" অর্থাৎ সোশাল লগিন ব্যবহার করে যেন ইউজার তাদের একাউন্টে লগইন এবং রেজিস্টার করতে হবে ।
 
-## How to run
+-   লগইন এবং রেজিস্ট্রেশনের ক্ষেত্রে Parallel Routing এবং Intercepting Routing ইমপ্লিমেন্ট করতে হবে, যেন নেভিগেশন করে লগইন বা রেজিস্ট্রেশন এ ক্লিক করলে মোডাল ওপেন হয় আর পেজ রিলোড করলে সেটি যেন একটি আলাদা পেজ আকারে দেখা যায় ।
 
-Different lessons taught in this [Reactive Accelerator: React-Next.js Bangla Course by Learn with Sumit](https://learnwithsumit.com/rnext), are organized in separate branches with naming convention - [**module number**].[**lesson number**]. For example, **Module-1 Lesson-1** source code is shared in **1.1** branch. Just switch to a branch and follow the corresponding branch's README file instruction.
+-   ইউজার চাইলে forget-password.html ব্যবহার করে তার Password Reset করতে পারবে । Password Reset এর ক্ষেত্রে ইউজারের ইমেইল এ মেইল পাঠাতে হবে ।
 
-Please follow the below instructions to run different branches of this repository in your machine:
+-   হোম পেজ অর্থাৎ index.html পেজের ক্ষেত্রে -
 
-1. Login to your GitHub account in your Terminal. If you can't setup and install Git in your machine, kindly follow [this tutorial](https://learnwithsumit.com/rnext/courses/rnext/git-github-refresher).
+    -   সার্চ Implement করতে হবে । যেন ইউজার যদি কোনো কী-ওয়ার্ড লিখে, ক্যাটেগরি সিলেক্ট করে সার্চ করে তাহলে প্রোডাক্ট এর সার্চ রেজাল্ট products.html অনুরূপ পেজে নিয়ে গিয়ে দেখাতে হবে ।
 
-2. Clone this repository -
-    ```sh
-    git clone https://github.com/Learn-with-Sumit/rnext.git
-    ```
-3. Go to the cloned project directory
-    ```sh
-    cd rnext
-    ```
-4. Checkout/switch to your desired branch. For example, to switch to branch 1.1 -
-    ```sh
-    git checkout 1.1
-    ```
-5. Follow the corresponding branch's README file instruction to run code.
+    -   সার্চ রেজাল্ট পেজ অর্থাৎ products.html এ একটা ইউজার এক্সপেরিয়ান্স রিলেটেড সমস্যা আছে । ইউজার কোন কী-ওয়ার্ড লিখে সার্চ করেছে এবং ইউজার যদি অন্য কোনো কী-ওয়ার্ড লিখে সার্চ করতে চায়, সেই অপশন বর্তমানে নেই । আপনাকে সার্চ রেজাল্ট পেজের এই ইউজার এক্সপেরিয়ান্স রিলেটেড সমস্যার সমাধান করতে হবে ।
 
+    -   Hero Section এর নিচে রয়েছে Shop by Category Section, সেখানে কোনো Category-তে ক্লিক করলে products.html পেজে নিয়ে যাবে এবং products.html পেজের বাম পাশের Filter অপশন এ ইউজারের সিলেক্ট করা Category By default সিলেক্ট করা থাকবে । এবং সেই Category অনুযায়ী প্রোডাক্ট দেখাতে হবে ।
 
-<!-- OUTLINE  -->
+    -   Featured Products Section-এ সেই সকল প্রোডাক্ট গুলো নিয়ে এসে দেখাতে হবে, যেগুলো প্রোডাক্ট এর Purchase সব থেকে বেশি । Initial অবস্থায় যদি কোনো কোনো Purchase না হয়ে থাকে তাহলে Created At তারিখের ভিত্তিতে সর্বোচ্চ ৮ টি প্রোডাক্ট নিয়ে এসে দেখাতে হবে । এই সেকশন থেকে ইউজার যাইলে যেকোনো প্রোডাক্ট "Add to Cart" করতে পারবে, Favourite Toggle করতে পারবে এবং Product Title এ ক্লিক করে সেই প্রোডাক্ট এর ডিটেইলস ও দেখতে পারবে । প্রোডাক্ট এর ডিটেইলস এ ক্লিক করলে details.html পেজের অনুরূপ পেজে নিয়ে গিয়ে অথবা Parallel Routing এবং Intercepting Routing ইমপ্লিমেন্ট করে প্রোডাক্ট এর ডিটেইলস ও দেখতে হবে ।
 
-## Outline
+    -   Featured Products Section-এ View All লিঙ্ক রয়েছে । সেখানে ক্লিক করলে সব গুলো প্রোডাক্ট দেখাতে হবে ।
 
-# 📘 Reactive Accelerator Course Outline
+-   প্রোডাক্ট ডিটেইলস পেজ অর্থাৎ details.html পেজের ক্ষেত্রে -
 
-## Module 0 - Introduction to course 07:12:17
+    -   প্রোডাক্ট ডিটেইলস পেজ এ প্রোডাক্ট এর গ্যালারি, ক্যাটাগরি ও প্রোডাক্ট ফিচারস (ex. Organic, Fresh) , প্রোডাক্ট নাম, ফার্মারের নাম, মোট রেটিং সংখ্যা এবং এভারেজ রেটিং, বিবরণ, Quantity ইত্যাদি তথ্য দেখাতে হবে অনুরূপ আমাদের দেয়া details.html টেম্পলেট এর মত ।
 
--   **0.1 Reactive Accelerator - Course intro** — _06:46 minute_
--   **0.2 How to enroll in Reactive Accelerator course** — _16:50 minute_
--   **0.3 How to get the most out of Reactive Accelerator course** — _15:01 minute_
--   **0.4 How to submit quizzes in Reactive Accelerator course** — _05:43 minute_
--   **0.5 Platform overview** — _11:24 minute_
--   **0.6 How to deploy your project to Vercel free** — _12:26 minute_
--   **0.7 How to submit Assignments in Reactive Accelerator course** — _08:40 minute_
--   **0.8 How to maintain multiple GitHub remote URLs** — _12:26 minute_
--   **0.9 How to ask for support** — _07:30 minute_
--   **0.10 Git/GitHub Refresher** — _01:45:48 hours_
--   **0.11 JavaScript Refresher** — _01:54:48 hours_
--   **0.12 Tailwind v4 Note - Things to know at firstnew** — _24:14 minute_
--   **0.13 Tailwind CSS Refresher** — _01:15:50 hours_
--   **0.14 Sample Video Test** — _00:13 minute_
--   **0.15 Troubleshoot protected video playing issues** — _14:41 minute_
+    -   ইউজার Add to Cart Toggle করতে পারবে, Add to Favourite করতে পারবে এবং Buy Now তে ক্লিক করলে সরাসরি paymentProcess.html এ নিয়ে যাবে ।
 
-## Module 1 - Getting started with React:
+    -   আপনাদের সকল প্রডাক্ট এর Stock Manage করতে হবে ।
 
-                                        Describing the UI 07:35:55
+    -   নিচের সেকশন এ Description, Reviews & Farmar Info ইত্যাদি ট্যাবভিউ তে দেখাতে হবে ।
 
--   **1.1 Introduction to React** — _49:13 minute_
--   **1.2 React Installation & Development Environment Setup** — _31:12 minute_
--   **1.3 How React works: Virtual DOM** — _29:55 minute_
--   **1.4 - Basics of React Components: Your first component** — _28:08 minute_
--   **1.5 - Basics of React Components: Importing & Exporting Components** — _11:59 minute_
--   **1.6 - Basics of JSX: React's Markup - Writing Markup with JSX** — _18:42 minute_
--   **1.7 - Basics of JSX: React's Markup - JavaScript in JSX with Curly Braces** — _21:00 minute_
--   **1.8 - Understanding Props - Passing Props to a Component** — _38:18 minute_
--   **1.9 - Conditional Rendering** — _29:11 minute_
--   **1.10 Rendering Lists** — _21:59 minute_
--   **1.11 Pure Components: Keeping Components Pure** — _27:33 minute_
--   **1.12 Understanding Complex React UI** — _22:27 minute_
--   **1.13 Project Tutorial - Tic-Tac-Toe Game** — _02:06:18 hours_
+    -   রিভিউ সেকশন এ সেই প্রোডাক্ট এর রিভিউ গুলো নিয়ে এসে দেখাতে হবে । ইউজার যদি প্রোডাক্টটি Purchase করে থাকে, তাহলে ইউজার Write a Review বাটন বাটন দেখতে পারবে । এবং একজন ইউজার শুধু মাত্র একটি রিভিউই দিতে পারবে ।
 
-## Module 2 - Going Deep into React :
+    -   রিভিউ সেকশন এ অনেক গুলো রিভিউ এর মধ্যে লগইন করা ইউজার এর রিভিউ প্রথমে দেখাবে এবং লগিন করা ইউজার তার রিভিউ Edit এবং Delete করতে পারবে ।
 
-                                        Adding Interactivity 06:03:26
+    -   Load More Reviews বাটনে ক্লিক করলে ৫টা করে রিভিউ নিয়ে এসে আগের রিভিউ লিস্ট এ যোগ করে দিবে ।
 
--   **2.1 Responding to Events - Adding Event Handlers** — _22:30 minute_
--   **2.2 Responding to Events - Event Propagation** — _26:45 minute_
--   **2.3 Understanding State: A Component's Memory** — _26:13 minute_
--   **2.4 How state works in React - A deep dive** — _18:25 minute_
--   **2.5 How Rendering works** — _14:23 minute_
--   **2.6 State as a Snapshot** — _24:42 minute_
--   **2.7 Queueing a Series of State Updates** — _17:46 minute_
--   **2.8 Updating Objects in a State** — _30:36 minute_
--   **2.9 Updating Arrays in a State** — _42:06 minute_
--   **2.10 Project Tutorial- Tasker: Streamlining Success with React-Powered Task Management** — _02:20:00 hours_
+    -   Related Products সেকশন এ রিলেটেড প্রোডাক্ট গুলো নিয়ে এসে দেখাতে হবে ।
 
-## Module 3 - React State Management Deep
+-   Payment Process পেজে -
 
-                                        Dive 10:15:43
+    -   ইউজারের সিলেক্ট করা প্রোডাক্ট এবং কার্ট এ থাকা প্রোডাক্ট গুলো লিস্ট করে থাকবে, ইউজারের Delivery Address, Subtotal, Delivery Fee, Service Fee সহ Total Amount দেখাবে । আমাদের Fake Payment Simulate করার জন্যে ডান পাশের Payment Information এ ইউজার ইনফরমেশন প্রোভাইড করে পেমেন্ট করতে পারবে ।
 
--   **3.1 Declarative vs Imperative UI** — _16:40 minute_
--   **3.2 Thinking about UI declaratively in React - Finding Visual States** — _25:10 minute_
--   **3.3 Thinking about UI declaratively in React - Finalize React states & Connect Event Handlers** — _26:50 minute_
--   **3.4 Choosing the State Structure - Group related state** — _24:25 minute_
--   **3.5 Choosing the State Structure - Avoid contradictions in state** — _10:42 minute_
--   **3.6 Choosing the State Structure - Avoid redundant state** — _18:24 minute_
--   **3.7 Choosing the State Structure - Avoid duplication in state** — _11:36 minute_
--   **3.8 Choosing the State Structure - Avoid deeply nested state** — _40:11 minute_
--   **3.9 Sharing State Between Components - Lifting state up** — _30:50 minute_
--   **3.10 Preserving and Resetting State - Default behavior** — _32:28 minute_
--   **3.11 Resetting state at the same position - Changing Default behavior** — _23:17 minute_
--   **3.12 Extracting State Logic into a Reducer - Example project** — _38:35 minute_
--   **3.13 Three steps to Consolidate state logic with a reducer** — _26:25 minute_
--   **3.14 Comparing useState and useReducer - How to write reducers well** — _18:35 minute_
--   **3.15 Writing concise reducers with Immer** — _10:04 minute_
--   **3.16 Passing Data Deeply with Context - Introduction to Context API** — _30:40 minute_
--   **3.17 Using and providing context from the same component** — _05:09 minute_
--   **3.18 Context passes through intermediate components** — _18:32 minute_
--   **3.19 Some notes and use cases for Context** — _11:56 minute_
--   **3.20 Scaling Up with Reducer and Context** — _35:42 minute_
--   **3.21 Project Tutorial - CineRental: Your One-Stop React App for Movie Magic and Rentals** — _02:39:32 hours_
+    -   Payment সাবমিট করলে ইউজার কে "success.html" পেজ দেখাতে হবে । সেখানে Oder Details, Payment Summery দেখাতে হবে ।
 
-## Module 4 - Part 1 - Advanced React:
+    -   সফল বুকিংয়ের পরে ইউজারকে ইমেইলে PDF ইনভয়েস পাঠাতে হবে ।
 
-                                        Escape Hatches 06:28:06
+    -   Edit Order Details ব্যাটনে ক্লিক করলে মোডাল ওপেন হবে এবং কারেন্ট অর্ডার এর তথ্য যেমন প্রোডাক্ট এর পরিমাণ বা ডেলিভারি এড্রেস পরিবর্তন করা যাবে । এর জন্যে কোনো UI দেয়া হয় নি । আপনাদের নিজেদের করতে হবে ।
 
--   **4.1 Referencing Values with Refs** — _33:54 minute_
--   **4.2 Manipulating the DOM with Refs - Getting a ref to the node** — _32:33 minute_
--   **4.3 Manipulating the DOM with Refs - Accessing another component’s DOM nodes** — _12:05 minute_
--   **4.4 Exposing a subset of the API with an imperative handle** — _09:11 minute_
--   **4.5 When React attaches the refs & Best practices for DOM manipulation with refs** — _13:05 minute_
--   **4.6 Flushing state updates synchronously with flushSync** — _12:14 minute_
--   **4.7 Synchronizing with Effects - Overview of Effects vs Events** — _10:44 minute_
--   **4.8 Synchronizing with Effects - How to write an Effect** — _52:12 minute_
--   **4.9 Synchronizing with Effects - Handling effects firing twice in development** — _25:29 minute_
--   **4.10 Synchronizing with Effects - Fetching Data** — _30:11 minute_
--   **4.11 Synchronizing with Effects - Putting it all together in one example** — _14:34 minute_
--   **4.12 You Might Not Need an Effect - Initial three examples** — _30:27 minute_
--   **4.13 You Might Not Need an Effect - Three more examples** — _37:46 minute_
--   **4.14 You Might Not Need an Effect - More examples** — _44:57 minute_
--   **4.15 You Might Not Need an Effect - Fetching data - Avoid Race Condition** — _28:44 minute_
+-   "success.html" পেজ এ -
 
-## Module 4 - Part 2 - Advanced React:
+    -   PDF আকারে Invoice Download করার ফিচার এড করতে হবে । Invoice এ কোম্পানির তথ্য, অর্ডারের তথ্য, গ্রাহকের তথ্য, Oder Details সহ প্রয়োজনীয় সকল তথ্য থাকবে PDF Invoice এ ।
 
-                                        Escape Hatches 09:12:45
+    -   "View All Orders" বাটনে ক্লিক করলে, লগইন করা ইউজারের সকল অর্ডার গুলো দেখা যাবে । সকল অর্ডার গুলো দেখানোর জন্যে "bookings.html" এ টেম্পলেট দেয়া হয়েছে ।
 
--   **4.16 The lifecycle of an Effect** — _40:49 minute_
--   **4.17 Effects react to reactive values** — _29:34 minute_
--   **4.18 Separating Events from Effects - Part 1** — _25:48 minute_
--   **4.19 Separating Events from Effects - Part 2** — _27:36 minute_
--   **4.20 Separating Events from Effects - Part 3** — _19:33 minute_
--   **4.21 Removing Effect Dependencies - Part 1** — _20:29 minute_
--   **4.22 Removing Effect Dependencies - Part 2** — _39:15 minute_
--   **4.23 Reusing Logic with Custom Hooks - Part 1** — _35:13 minute_
--   **4.24 Reusing Logic with Custom Hooks - Part 2** — _19:46 minute_
--   **4.25 Reusing Logic with Custom Hooks - Part 3** — _16:00 minute_
--   **4.26 Reusing Logic with Custom Hooks - Part 4** — _12:38 minute_
--   **4.27 Reusing Logic with Custom Hooks - Part 5** — _29:26 minute_
--   **4.28 - Performance Optimization** — _25:48 minute_
--   **4.29 - Performance Optimization - More Example** — _13:41 minute_
--   **4.30 Project Tutorial - Real-time Weather Dashboard** — _03:17:09 hours_
+-   ইউজারের বুকিং হিস্টরি দেখাতে "bookings.html" এর টেম্পলেট ব্যবহার করতে হবে । সেখানে -
 
-## Module 5 - Part-1 - React Beyond
+    -   ইউজারের পূর্বের এবং বর্তমান সকল অর্ডার গুলো দেখা যাবে ।
 
-                                        Basics: Ecosystem & Use Cases 11:11:34
+    -   ইউজারের অর্ডার Invoice Download করা যাবে ।
 
--   **5.1 React Router v6 Crash Course** — _02:10:44 hours_
--   **5.2 API Request with Axios in React** — _01:04:58 hours_
--   **5.3 React Query Crash Course** — _01:51:05 hours_
--   **5.4 React Hook Form Crash Course** — _01:35:33 hours_
--   **5.5 React Suspense and Error Boundaries Explained** — _01:06:55 hours_
--   **5.6 React Lazy Load explained** — _21:43 minute_
--   **5.7 Animation in React with Framer Motion** — _01:32:43 hours_
--   **5.8 How to do Authentication in React with Firebase** — _01:27:53 hours_
+    -   অর্ডারের প্রোডাক্ট এ Review দেয়া যাবে ।
 
-## Module 5 - Part-2 - React Beyond
+    -   অর্ডার ক্যান্সেল করা যাবে ।
 
-                                        Basics: Ecosystem & Use Cases 12:17:38
+    -   লগইন ইউজার যদি "ফার্মার" হয় তবে এই পেজ এ তার সকল পণ্যের অর্ডার হওয়া তালিকা দেখবে এবং সে অর্ডার হওয়া পণ্যের অবস্থা পরিবর্তন করতে পারবে। পণ্যের অবস্থা: Pending, Confirmed, Shipped, Delivered, Cancled । অপর দিকে, লগইন ইউজার যদি "User" হয়, তাহলে সে তার Order Status দেখতে পারবে, সেই সাথে Download, Review, Reorder ফিচার ও ব্যবহার করতে পারবে ।
 
--   **5.9 React Infinite Scroll** — _39:39 minute_
--   **5.10 Dive into Uncommon React Hooks** — _01:46:04 hours_
--   **5.11 Styling with React - React Styled Components & CSS Modules** — _49:09 minute_
--   **5.12 React Virtualized** — _38:12 minute_
--   **5.13 React Portal** — _57:50 minute_
--   **5.14 React-redux crash course** — _01:37:36 hours_
--   **Project - FaceHook - Part 1 - Project Setup and Routing** — _24:36 minute_
--   **Project - FaceHook - Part 2 - Header Fake Log in & Log out** — _35:30 minute_
--   **Project - FaceHook - Part 3 - Auth Context Private Route** — _23:28 minute_
--   **Project - FaceHook - Part 4 - JWT Implementation** — _58:09 minute_
--   **Project - FaceHook - Part 5 - Profile Page Bio and Image** — _01:11:49 hours_
--   **Project - FaceHook - Part 6 - Profile Post** — _44:22 minute_
--   **Project - FaceHook - Part 7 - Post Feed** — _13:40 minute_
--   **Project - FaceHook - Part 8 - New User Registration** — _14:10 minute_
--   **Project - FaceHook - Part 9 - Like and Comment Posts** — _19:20 minute_
--   **Project - FaceHook - Part 10 - Create, Edit, Delete Posts** — _44:04 minute_
+    -   Reorder এর ক্ষেত্রে ইউজারের জার্নি কেমন হবে, সেটা আপনি বিবেচনা করবেন ।
 
-## Module 6 - React Anti patterns:
+-   Navbar সকল পেজের জন্যে কমন । তবে ইউজার লগইন এর উপর ভিত্তি করে মেনু ভিন্ন হতে হবে । ইউজার যদি লগইন না করে, তবে Login & Signup বাটন দেখাতে হবে । যদি লগইন করা থাকে তাহলে ইউজারের ইউজারের ছবি ও নাম দেখাতে হবে । সেই সাথে লগইন করা ব্যাক্তি যদি ফার্মার হয় তবে এই মেনু গুলো দেখাতে হবে - "Home", "Add Product", "Manage Products", "About", "Logout" । আর লগইন করা ব্যাক্তি যদি নর্মাল ইউজার হয় তবে - "Home", "Products", "Farmers" "My Orders", "About", "Logout" দেখাতে হবে ।
 
-                                        Mistakes You Must Avoid 02:19:18
+-   Add Product পেজে শুধুমাত্র একজন ফার্মার টাইপের ইউজার যেতে পারবে । এই পেজের জন্যে create.html টেম্পলেট ব্যবহার করতে হবে । এই পেজের প্রয়োজনীয় তথ্য দিয়ে সাবমিট করলে নতুন প্রোডাক্ট তৈরি হবে ।
 
--   **6.1 Props Drilling and Props Plowing** — _07:44 minute_
--   **6.2 Component Nesting & Huge Components** — _05:03 minute_
--   **6.3 Unwanted parent tags** — _05:40 minute_
--   **6.4 Storing everything as the state** — _04:11 minute_
--   **6.5 Multiple useState, useReducer instead** — _05:32 minute_
--   **6.6 Using the Index as a key in the loop** — _05:14 minute_
--   **6.7 Context over Redux (Putting everything in Redux)** — _05:09 minute_
--   **6.8 Over optimising Performance** — _07:11 minute_
--   **6.9 Introduction to React Anti pattens - the mistakes you must avoid** — _02:03 minute_
--   **6.10 React 19 new Features - What's new in React 19** — _01:31:31 hours_
+-   একজন ফার্মার তার তৈরি করা প্রোডাক্ট গুলো ম্যানেজ করতে manageList.html এর টেম্পলেট ব্যবহার করবে । সেখানে সে তার তৈরি করা প্রোডাক্ট Edit, Publish/unpublish, Delete, Search, filter করতে পারবে । সেই সাথে Add new Product বাটন থেকে পুনরায় Add করার পেজে যেতে পারবে ।
 
-## Module 7 - Getting started with
+-   যেকোনো ইউজার (Anonymous/Farmar/User) Farmers পেজে গেলে Registered Farmar দের তথ্য দেখতে পারবে ।
 
-                                        Next.js: Installation & Basic
-                                        Routing 06:15:38
+-   Navbar থেকে Cart Menu তে ক্লিক করলে Cart Page এ নিয়ে যেতে হবে । কিন্তু আমরা আপনাকে Cart পেজ তৈরি করে দেই নি । আপনাকে পুরো এপ্লিকেশন এর Theme এবং Design System অনুযায়ী একটি Cart Page তৈরি করে নিতে হবে । অনুরূপ ভাবে Favourite পেজ ও আপনাকে বানাতে হবে । এবং মেনু এড করতে হবে, যেন ইউজার বা ফার্মার Favourite Products পেজে যেতে পারে এবং সেখান থেকে Favourite Toggle, Purchase, Cart Add করতে পারে ।
 
--   **7.1 Introduction to Next.js** — _16:57 minute_
--   **7.2 Next.js installation & Editor Setup with Tailwind CSS** — _13:24 minute_
--   **7.3 Project Structure** — _09:38 minute_
--   **7.4 Defining Routes** — _08:16 minute_
--   **7.5 Pages and Layouts** — _27:22 minute_
--   **7.6 Linking and Navigating** — _44:15 minute_
--   **7.7 Loading & Streaming** — _33:35 minute_
--   **7.8 Error Handling** — _29:34 minute_
--   **7.9 Route Groups** — _12:07 minute_
--   **7.10 Dynamic Routes** — _24:18 minute_
--   **7.11 Project Tutorial - DocuCraft - Part 1** — _01:33:40 hours_
--   **7.12 Project Tutorial - DocuCraft - Part 2** — _25:44 minute_
--   **7.13 Project Tutorial - DocuCraft - Part 3** — _28:49 minute_
--   **7.2-new Next.js 15 installation issues & note** — _07:59 minute_
+-   আপনাকে বিভিন্ন স্টেট যেমন - Loading, Error, Not found ইত্যাদি এবং ফর্ম ভ্যালিডেশন সঠিক ভাবে ম্যানেজ করতে হবে ।
 
-## Module 8 - Advanced Routing 05:33:49
+-   হোম পেজ এবং প্রোডাক্ট ডিটেইলস পেজ SEO friendly হতে হবে । অর্থাৎ এই দুটি পেজে সঠিক ইনফরমেশন দিয়ে Meta title, description, image দেখাতে হবে । বিশেষ করে Product Details পেজে যেন প্রোডাক্ট এর লিংক এর উপর ভিত্তি করে Meta title, description, image Generate হয় । এবং সোশাল মিডিয়া যেমনঃ ফেসবুকে শেয়ার করলে যেন এই ইনফরমেশন গুলো দেখা যায় ।
 
--   **8.1 Project Organization & File colocation** — _16:23 minute_
--   **8.2 Parallel Routes** — _20:12 minute_
--   **8.3 Unmatched & Intercepting Routes** — _25:10 minute_
--   **8.4 Combining Parallel & Intercepting Routes** — _16:06 minute_
--   **8.5 Intro to Route Handlers - GET, POST, PATCH, DELETE** — _38:46 minute_
--   **8.6 More with Route Handlers - Headers, cookies, caching & redirecting** — _34:28 minute_
--   **8.7 Middlewares** — _34:16 minute_
--   **8.8 Not found page** — _12:11 minute_
--   **8.9 Internationalization** — _34:50 minute_
--   **Project Tutorial - PhotoFeed - Part 1** — _17:00 minute_
--   **Project Tutorial - PhotoFeed - Part 2** — _08:23 minute_
--   **Project Tutorial - PhotoFeed - Part 3** — _26:47 minute_
--   **Project Tutorial - PhotoFeed - Part 4** — _22:46 minute_
--   **Project Tutorial - PhotoFeed - Part 5** — _26:31 minute_
+## বোনাস মার্ক:
 
-## Module 9 - Data Fetching, Caching &
+-   এই এসাইনমেন্ট এ বোনাস মার্ক রয়েছে।
+-   এই এসাইনমেন্ট এ আপনাদের সৃজনশীলতার পূর্ণ স্বাধীনতা রয়েছে । আপনারা চাইলে নিজের মত করে পেজ/রাউট তৈরি করতে পারেন, বিভিন্ন ফিচার তৈরি করতে পারেন । তবে আপনার নতুন করে যুক্ত করা ফিচার গুলো অবশ্যই Github Readme তে গুছিয়ে লিখে দিতে হবে ।
+-   এসাইনমেন্ট এ স্পষ্টভাবে লিখে দেওয়া নির্দেশনা বা ভিডিওতে দেখানো নির্দেশনা নিয়ে বারবার প্রশ্ন করলে মূল মার্ক ও বোনাস মার্কের ওপর প্রভাব পড়তে পারে। কারণ, নির্দিষ্ট রিকোয়ারমেন্ট বুঝে আপনি নিজে থেকে কতটা চিন্তা করে কাজ করতে পারেন, সেটাই মূল্যায়নের অন্যতম লক্ষ্য।
 
-                                        Revalidation 04:46:14
+## সামগ্রিক নির্দেশনা এবং বিধিনিষেধঃ
 
--   **9.1 Data Fetching - on the server with 'fetch'** — _36:32 minute_
--   **9.2 Data Fetching - on the server & client with third-party libraries & route handlers** — _13:18 minute_
--   **9.3 Server Action - Introduction & Example with MongoDB Database** — _39:06 minute_
--   **9.4 More with Server Action - Different Use Cases** — _33:18 minute_
--   **9.5 Data Fetching Patterns and Best Practices - Sequential & Parallel Data Fetching** — _28:16 minute_
--   **9.6 Caching in Next.js** — _27:29 minute_
--   **Project - EcoVista - Part 1 - Intro & Project Setup** — _06:23 minute_
--   **Project - EcoVista - Part 2 - API Development** — _13:30 minute_
--   **Project - EcoVista - Part 3 - Create Slot Skeletons** — _19:38 minute_
--   **Project - EcoVista - Part 4 - Detect Geolocation & Reroute** — _13:46 minute_
--   **Project - EcoVista - Part 5 - Slots ready with APIs** — _26:30 minute_
--   **Project - EcoVista - Part 6 - Location info switcher** — _14:47 minute_
--   **Project - EcoVista - Part 7 - Direct Route** — _13:41 minute_
+-   MongoDB Atlas এ আপনাদের সব ডেটা রাখতে হবে ।
+-   পুরো এসাইনমেন্ট এর ব্যাকেন্ড এর ডেটাবেজ ডিজাইন কেমন হবে, সেটিও আপনাকে করতে হবে ।
+-   এসাইনমেন্ট এ কিছু ক্ষেত্রে Popup/Dialog এর কোনো ডিজাইন দেয়া হয়নি সেটি আপনি পরিবর্তন করতে পারবেন ।
+-   আপনি চাইলে TypeScript ব্যবহার করতে পারবেন ।
+-   আপনার প্রয়োজনে আপনি ডিজাইন পরিবর্তন এবং আপডেট করতে পারবেন ।
+-   আপনি চাইলে রিকুয়ারমেন্টস এর বাহিরে গিয়ে আলাদা কোনো ফিচার এড করতে পারবেন ।
+-   আপনাকে খেয়াল রাখতে হবে, যেন Github Repository তে আপনার .env ফাইল আপলোড হয়। কোনো কারণে যদি Github Repository .env না থাকে তাহলে সেই এসাইনমেন্ট বাতিল বলে গণ্য হবে ।
 
-## Module 10 - Rendering &
+## কিভাবে সাবমিট করবেন:
 
-                                        Optimizing 06:49:56
+সবচেয়ে সহজে বুঝার জন্য [এই ভিডিওটি](https://learnwithsumit.com/rnext/courses/rnext/how-to-submit-assignments-in-reactive-accelerator-course) দেখে ফেলুন।
 
--   **10.1 Next.js Rendering explained** — _29:54 minute_
--   **10.2 Next.js server vs client component explained** — _23:05 minute_
--   **10.3 Composition Patterns** — _37:35 minute_
--   **10.4 Image Optimization** — _45:03 minute_
--   **10.5 Font Optimization** — _21:53 minute_
--   **10.6 Metadata** — _32:16 minute_
--   **10.7 Static Assets** — _04:07 minute_
--   **10.8 Lazy Loading** — _13:01 minute_
--   **10.9 Third-party Libraries** — _10:52 minute_
--   **10.10 Project Eventry - Part-1 - Introduction & Project Structure** — _30:02 minute_
--   **10.11 Project Eventry - Part-2 - Setting up MongoDB and UI from the data from database** — _39:26 minute_
--   **10.12 Project Eventry - Part-3 - Login, Register Functionality, and Auth Context** — _46:26 minute_
--   **10.13 Project Eventry - Part-4 - Implementing Interested functionality** — _21:28 minute_
--   **10.14 Project Eventry - Part-5 - Implementing Going to event and Send Email functionality** — _20:23 minute_
--   **10.15 Project Eventry - Part-6 - How to Setup Google Event Schema for SEO** — _08:07 minute_
--   **10.16 Project Eventry - Part-7 - How to set up Dynamic Meta Data** — _03:38 minute_
--   **10.17 Project Eventry - Part-8 - How to implement server side search** — _11:51 minute_
--   **10.18 Project Eventry - Part-9 - What is the right way to use Suspense and Image optimization** — _10:49 minute_
+এসাইনমেন্টে আপনাকে মাত্র দুইটা জিনিস সাবমিট করতে হবে।
 
-## Module 11 - Next.js Beyond Basics -
+1. **GitHub private repository link:** অবশ্যই সঠিক গিটহাব রিপোজিটরি লিংক দিতে হবে। ভুলে অন্য কোনো লিংক দিলে আপনি এসাইনমেন্টের মার্ক পাবেন না তাই সাবমিট করার আগে নিউ ট্যাবে লিংক ওপেন করে চেক করে নিবেন সঠিক লিংক জমা দিচ্ছেন কিনা।
+2. **Live site link:** ভার্সেলে সাইট হোস্ট করে সাইটের লাইভ লিংক দিতে হবে। ভুলে অন্য কোনো লিংক দিলে আপনি এসাইনমেন্টের মার্ক পাবেন না তাই সাবমিট করার আগে নিউ ট্যাবে লিংক ওপেন করে চেক করে নিবেন সঠিক লিংক জমা দিচ্ছেন কিনা। ভার্সেলে কি ভাবে হোস্ট করতে হয় তা আপনি না জানলে [এইখানে ক্লিক](https://learnwithsumit.com/rnext/courses/rnext/how-to-deploy-your-project-to-vercel-free) করে দেখে নিতে পারেন।
 
-                                        Ecosystem & Use Cases 11:50:58
+**সাবমিট একবারই করতে পারবেন তাই ভালো করে দেখে সাবমিট করবেন।**
 
--   **Next-auth crash course** — _01:02:08 hours_
--   **TypeScript crash course** — _01:26:25 hours_
--   **Project StaySwift - Part-1 - Introduction and Component Structure** — _32:15 minute_
--   **Project StaySwift - Part-2 - Database setup, data design, Creating schema, model, testing queries** — _20:04 minute_
--   **Project StaySwift - Part-3 - Setup Next-Auth Oauth2 with Google.** — _49:32 minute_
--   **Project StaySwift - Part-4 - Implement User Registration** — _12:52 minute_
--   **Project StaySwift - Part-5 - Show Authenticated User details in Profile.** — _05:02 minute_
--   **Project StaySwift - Part-6 - Implement Protected Routes** — _06:32 minute_
--   **Project StaySwift - Part-7 - Hotel Listing and Hotel Details from DB data** — _28:30 minute_
--   **Project StaySwift - Part-8 - Implementing Search** — _47:55 minute_
--   **Project StaySwift - Part-9 - Implement Hotel Booking Functionality** — _22:14 minute_
--   **Project StaySwift - Part-10 - Implement My Profile Booking List** — _10:29 minute_
--   **Project StaySwift - Part-11 - Implement Hotel Filter Functionality and End Notes** — _28:57 minute_
--   **GraphQL - Part 1 - Introduction to GraphQL** — _49:46 minute_
--   **GraphQL - Part 2 - Setting up Next.js project, GraphQl CLient, Writintg Queries** — _32:31 minute_
--   **GraphQL - Part 3 - Page Header Footer** — _09:23 minute_
--   **GraphQL - Part 4 - Post list, latest post, post cards** — _28:03 minute_
--   **GraphQL - Part 5 - Post details** — _10:36 minute_
--   **GraphQL - Part 6 - Filter posts by Tags, Home Page, and Refrences** — _18:36 minute_
--   **Testing and Debugging crash course** — _01:12:29 hours_
--   **Prisma Crash Course** — _01:16:39 hours_
+## GitHub private repository কিভাবে তৈরি করবেন:
 
-## Module 12 - Final Project - EduConnect
+Github Private repositoty তৈরি করতে [এইখানে ক্লিক করুন](https://classroom.github.com/a/rRGPzpNX) অথবা ব্রাউজারে এই লিংকে **https://classroom.github.com/a/rRGPzpNX** ভিজিট করুন। লিংকে যাওয়ার পরে **Accept this assignment** এ ক্লিক করুন। সর্বোচ্চ ১ মিনিট পরে পেইজটি রিলোড দিলে আপনি আপনার রিপোজেটরি লিংক পেয়ে যাবেন। মনে রাখবেন, আপনাকে এই লিংকটি আমাদের প্লাটফর্মে সাবমিট করতে হবে। না বুঝলে উপরে বলা ভিডিও টিউটোরিয়ালটি দেখে নিন।
 
-                                        - Development to Deployment 25:05:31
+## এসাইনমেন্ট মার্কস পলিসি:
 
--   **Project EduConnect - Part-1 - Introduction and Project Overview, Database Design, Pages and Components, Installation, shadcnUi, folder structure** — _59:13 minute_
--   **Project EduConnect - Part-2 - Model Creation and Query Testing** — _30:39 minute_
--   **Project EduConnect - Part-3 - Home Page, Course List, Explore Now** — _01:02:57 hours_
--   **Project EduConnect - Part-4 - Course Details Page** — _01:27:36 hours_
--   **Project EduConnect - Part-5 - Register and Become an Instructor, Login** — _55:36 minute_
--   **Project EduConnect - Part-6 - Protected route** — _35:21 minute_
--   **Project EduConnect - Part-7 - JWT Refresh Token** — _52:19 minute_
--   **Project EduConnect - Part-8 - Stripe Integration** — _43:52 minute_
--   **Project EduConnect - Part-9 - Enrol and Enrolment Success, Send Email** — _01:08:22 hours_
--   **Project EduConnect - Part-10 - Reset Password and Account Update** — _59:42 minute_
--   **Project EduConnect - Part-11 - Database Design restructure, Course Details, Calculations** — _01:02:28 hours_
--   **Project EduConnect - Part-12 - Dashboard - Features, Analytics, Profile pictures, Avatar Logout** — _01:01:05 hours_
--   **Project EduConnect - Part-13 - Dashboard - Course data, Review, Enrolment** — _01:06:27 hours_
--   **Project EduConnect - Part-14 - Dashboard - Course create, Meta data updates, Image upload** — _01:40:56 hours_
--   **Project EduConnect - Part-15 - Dashboard - Module creation, Reordering of modules** — _29:51 minute_
--   **Project EduConnect - Part-16 - Dashboard - Module page, Title update, Lesson added, Reordered, Course page back link** — _54:55 minute_
--   **Project EduConnect - Part-17 - Dashboard - Lesson data update, Video, Title, Lesson visibility** — _51:38 minute_
--   **Project EduConnect - Part-18 - Lesson publish unpublish delete,⁠Module publish,⁠Course publish unpublish delete** — _01:05:32 hours_
--   **Project EduConnect - Part-19 - Quizset - Add quiz, Add quizset to course, Course progress and Bugfix** — _01:58:07 hours_
--   **Project EduConnect - Part-20 - Lesson page structures, ⁠Links to lesson, ⁠Lesson authz authn guard** — _49:45 minute_
--   **Project EduConnect - Part-21 - Lesson side bar actual data, Lesson states maintained, ⁠Lesson unique URL** — _55:53 minute_
--   **Project EduConnect - Part-22 - Video player for lesson, Update watch history, state changes on ui on lesson completion** — _01:00:12 hours_
--   **Project EduConnect - Part-23 - Report update on lesson and module completion, Show the course completion progress in realtime** — _32:56 minute_
--   **Project EduConnect - Part-24 - Certificate Download** — _49:11 minute_
--   **Project EduConnect - Part-25 - Quiz Submission and End This Project** — _01:30:58 hours_
+আপনি নির্ধারিত সময়ে এসাইনমেন্ট জমা দিলে এবং সব কিছু সঠিকভাবে করলে সম্পূর্ণ মার্ক পাবেন।
 
+1. ডেডলাইনের পরে রিয়্যাক্টিভ এক্সিলারেটর কোর্স এর আর কোনো এসাইনমেন্ট গ্রহণ করা হবে না । অর্থাৎ পূর্বে বাকি থাকা কোনো এসাইনমেন্টও এই তারিখের পরে সাবমিট করতে পারবেন না ।
 
-<!-- CONTACT  -->
+## সাবমিট করার পর কোড পরিবর্তন:
 
-## Contact us
+আপনি ভেবে নিতে পারেন আপনি ওয়েবসাইটে সঠিক সময়ে এসাইনমেন্ট সাবমিট করে নীরবে পরে গিটহাবে কোড পুশ করতে থাকবেন! আপনার গিটহাবের সর্বশেষ কমিট দেখলেই আমরা বুঝতে পারবো আপনি কখন কোড আপডেট করেছেন। সে অনুযায়ী আমরা আপনার মার্ক কেটে নিবো। তাই এসাইনমেন্ট এর সময় পার হবার পরে আমরা আশা করবো আপনি চালাকি করে আর কোড পুশ করবেন না আপনার রিপোজিটরিতে। এটা করলে আপনার সম্পূর্ণ মার্ক কাটা যেতে পারে।
 
-[![Facebook][facebook-shield]][facebook-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![Instagram][instagram-shield]][instagram-url]
-[![mail][mail-shield]][mail-url]
+## এসাইনমেন্ট মার্কস কবে পাবেন:
 
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[youtube-shield]: https://img.shields.io/badge/-Youtube-black.svg?style=flat-square&logo=youtube&color=555&logoColor=white
-[youtube-url]: https://youtube.com/LearnwithSumit
-[facebook-shield]: https://img.shields.io/badge/-Facebook-black.svg?style=flat-square&logo=facebook&color=555&logoColor=white
-[facebook-url]: https://facebook.com/letslearnwithsumit
-[facebook-group-url]: https://facebook.com/groups/learnwithsumit
-[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&color=555&logoColor=white
-[instagram-url]: https://instagram.com/learnwithsumit
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/company/learnwithsumit
-[thumbnail-shield]: https://i.ibb.co/d6hxnvd/Screenshot-50.png
-[mail-shield]: https://img.shields.io/badge/%F0%9F%93%A7%20Email-support%40learnwithsumit.com-lightgray
-[mail-url]: mailto:support@learnwithsumit.com
-[htmlicon-shield]: https://img.icons8.com/external-flaticons-flat-flat-icons/28/undefined/external-html-computer-programming-flaticons-flat-flat-icons.png
+আমরা সর্বোচ্চ ১৫ কার্যদিবসের ভিতরে এসাইনমেন্টের মার্ক দিয়ে দেওয়ার চেষ্টা করবো। ক্ষেত্র বিশেষে একটু দেরি হতে পারে কারো কারো মার্ক পেতে।
