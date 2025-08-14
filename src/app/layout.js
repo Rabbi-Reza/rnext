@@ -1,25 +1,24 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import Header from './ui/Header'
+import Header from "./components/ui/header";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Learn Next.js',
-  description: 'Created to teach Next.js in a fun way!',
-}
+    title: "Learn Next.js",
+    description: "Created to teach Next.js in a fun way!",
+};
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <div 
-          className="flex flex-col items-center p-4 bg-slate-200 h-screen">  
-          {children}
-        </div>
-      </body>
-    </html>
-  )
+    return (
+        <html lang="en">
+            <body className={inter.className}>
+                <Header />
+                <div className="flex flex-col items-center p-4 bg-slate-200 h-screen">
+                    {children}
+                </div>
+            </body>
+        </html>
+    );
 }
