@@ -3,7 +3,7 @@
 This document provides a clear and concise guide to the Product Management API. It follows OpenAPI specifications and includes human-friendly examples for easy integration.
 
 ## Base URL
-\`http://localhost:9000/products\`
+\`http://localhost:3000/products\`
 
 ## Data Models
 
@@ -40,6 +40,7 @@ Retrieves a list of all products with optional sorting and filtering.
 | \`category\` | String | Filter by category name. | \`Laptop\` |
 | \`minPrice\` | Float | Filter by minimum price. | \`1000\` |
 | \`maxPrice\` | Float | Filter by maximum price. | \`2000\` |
+| \`minRating\` | Float | Filter by minimum \`rating_rate\`. | \`4\` |
 
 #### Success Response
 - **Code**: \`200 OK\`
@@ -78,7 +79,13 @@ Search for products by matching keywords in the title or description.
 #### Query Parameters
 | Parameter | Type | Required | Description | Example |
 | :--- | :--- | :--- | :--- | :--- |
-| \`q\` | String | Yes | Search keyword. | \`gaming\` |
+| \`q\` | String | Yes | Search keyword (matches \`title\` and \`description\`). | \`gaming\` |
+| \`category\` | String | No | Filter by category. | \`Laptop\` |
+| \`minPrice\` | Float | No | Minimum price (inclusive). | \`500\` |
+| \`maxPrice\` | Float | No | Maximum price (inclusive). | \`1500\` |
+| \`minRating\` | Float | No | Minimum \`rating_rate\`. | \`4\` |
+| \`sortBy\` | String | No | Sort field: \`id\`, \`title\`, \`price\`, \`category\`, \`rating_rate\`, \`rating_count\`, \`stock\`. | \`price\` |
+| \`order\` | String | No | Sort order when \`sortBy\` is set: \`asc\` (default) or \`desc\`. | \`desc\` |
 
 #### Success Response
 - **Code**: \`200 OK\`
