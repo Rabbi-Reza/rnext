@@ -1,5 +1,5 @@
-const { Product } = require('../models');
-const { Op } = require('sequelize');
+const { Product } = require("../models");
+const { Op } = require("sequelize");
 
 exports.createProduct = async (req, res, next) => {
     try {
@@ -12,12 +12,12 @@ exports.createProduct = async (req, res, next) => {
             description,
             category,
             image,
-            stock
+            stock,
         });
 
         res.status(201).json({
             success: true,
-            data: product
+            data: product,
         });
     } catch (error) {
         next(error);
@@ -26,7 +26,8 @@ exports.createProduct = async (req, res, next) => {
 
 exports.getAllProducts = async (req, res, next) => {
     try {
-        const { sortBy, order, category, minPrice, maxPrice } = req.query;
+        const { sortBy, order, category, minPrice, maxPrice, minRating } =
+            req.query;
 
         const where = {};
         if (category) where.category = category;
@@ -35,21 +36,29 @@ exports.getAllProducts = async (req, res, next) => {
             if (minPrice) where.price[Op.gte] = minPrice;
             if (maxPrice) where.price[Op.lte] = maxPrice;
         }
+        if (minRating) {
+            const minRatingNum = parseFloat(minRating);
+            if (!Number.isNaN(minRatingNum)) {
+                where.rating_rate = {
+                    [Op.gte]: minRatingNum,
+                };
+            }
+        }
 
         const orderClause = [];
         if (sortBy) {
-            orderClause.push([sortBy, order === 'desc' ? 'DESC' : 'ASC']);
+            orderClause.push([sortBy, order === "desc" ? "DESC" : "ASC"]);
         }
 
         const products = await Product.findAll({
             where,
-            order: orderClause
+            order: orderClause,
         });
 
         res.status(200).json({
             success: true,
             count: products.length,
-            data: products
+            data: products,
         });
     } catch (error) {
         next(error);
@@ -61,14 +70,14 @@ exports.getProductById = async (req, res, next) => {
         const product = await Product.findByPk(req.params.id);
 
         if (!product) {
-            const error = new Error('Product not found');
+            const error = new Error("Product not found");
             error.statusCode = 404;
             throw error;
         }
 
         res.status(200).json({
             success: true,
-            data: product
+            data: product,
         });
     } catch (error) {
         next(error);
@@ -80,7 +89,7 @@ exports.updateProduct = async (req, res, next) => {
         const product = await Product.findByPk(req.params.id);
 
         if (!product) {
-            const error = new Error('Product not found');
+            const error = new Error("Product not found");
             error.statusCode = 404;
             throw error;
         }
@@ -94,7 +103,7 @@ exports.updateProduct = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            data: product
+            data: product,
         });
     } catch (error) {
         next(error);
@@ -106,7 +115,7 @@ exports.deleteProduct = async (req, res, next) => {
         const product = await Product.findByPk(req.params.id);
 
         if (!product) {
-            const error = new Error('Product not found');
+            const error = new Error("Product not found");
             error.statusCode = 404;
             throw error;
         }
@@ -115,7 +124,7 @@ exports.deleteProduct = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            data: {}
+            data: {},
         });
     } catch (error) {
         next(error);
@@ -128,7 +137,7 @@ exports.resetStock = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            message: 'All products stock reset to 10'
+            message: "All products stock reset to 10",
         });
     } catch (error) {
         next(error);
@@ -150,7 +159,7 @@ exports.filterProducts = async (req, res, next) => {
 
         if (minRating) {
             where.rating_rate = {
-                [Op.gte]: minRating
+                [Op.gte]: minRating,
             };
         }
 
@@ -159,7 +168,7 @@ exports.filterProducts = async (req, res, next) => {
         res.status(200).json({
             success: true,
             count: products.length,
-            data: products
+            data: products,
         });
     } catch (error) {
         next(error);
@@ -168,7 +177,8 @@ exports.filterProducts = async (req, res, next) => {
 
 exports.searchProducts = async (req, res, next) => {
     try {
-        const { q } = req.query;
+        const { q, sortBy, order, category, minPrice, maxPrice, minRating } =
+            req.query;
 
         if (!q) {
             const error = new Error('Search query "q" is required');
@@ -176,19 +186,57 @@ exports.searchProducts = async (req, res, next) => {
             throw error;
         }
 
-        const products = await Product.findAll({
-            where: {
-                [Op.or]: [
-                    { title: { [Op.like]: `%${q}%` } },
-                    { description: { [Op.like]: `%${q}%` } }
-                ]
+        const where = {
+            [Op.or]: [
+                { title: { [Op.like]: `%${q}%` } },
+                { description: { [Op.like]: `%${q}%` } },
+            ],
+        };
+
+        if (category) {
+            where.category = category;
+        }
+
+        if (minPrice || maxPrice) {
+            const minPriceNum = parseFloat(minPrice);
+            const maxPriceNum = parseFloat(maxPrice);
+
+            where.price = {};
+            if (!Number.isNaN(minPriceNum)) where.price[Op.gte] = minPriceNum;
+            if (!Number.isNaN(maxPriceNum)) where.price[Op.lte] = maxPriceNum;
+        }
+
+        if (minRating) {
+            const minRatingNum = parseFloat(minRating);
+            if (!Number.isNaN(minRatingNum)) {
+                where.rating_rate = { [Op.gte]: minRatingNum };
             }
+        }
+
+        const allowedSortFields = [
+            "id",
+            "title",
+            "price",
+            "category",
+            "rating_rate",
+            "rating_count",
+            "stock",
+        ];
+        const orderClause = [];
+
+        if (sortBy && allowedSortFields.includes(sortBy)) {
+            orderClause.push([sortBy, order === "desc" ? "DESC" : "ASC"]);
+        }
+
+        const products = await Product.findAll({
+            where,
+            order: orderClause,
         });
 
         res.status(200).json({
             success: true,
             count: products.length,
-            data: products
+            data: products,
         });
     } catch (error) {
         next(error);
