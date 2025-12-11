@@ -1,5 +1,5 @@
 const { Job, Company, Application } = require('../models');
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 
 // @desc    Create a new job
 // @route   POST /api/jobs
@@ -63,10 +63,12 @@ const getJobs = async (req, res) => {
         if (search) {
             const searchTerm = `%${search.toLowerCase()}%`;
             where[Op.or] = [
-                // SQLite/Sequelize usually handles case-insensitive LIKE by default or we can force it
                 { title: { [Op.like]: searchTerm } },
-                // Searching JSON skills array as string text
-                { skills: { [Op.like]: searchTerm } }
+                // Cast JSON skills to TEXT for LIKE search
+                Sequelize.where(
+                    Sequelize.cast(Sequelize.col('Job.skills'), 'TEXT'),
+                    { [Op.like]: searchTerm }
+                )
             ];
         }
 
@@ -77,7 +79,6 @@ const getJobs = async (req, res) => {
         const mapToEnum = (inputStr, allowedList) => {
             if (!inputStr) return null;
             const values = inputStr.split(',').map(v => v.trim().toLowerCase());
-            // Map each lowercase input to the matching allowed Enum value (if found), otherwise keep original (in case of new values/strict db)
             return values.map(v => allowedList.find(a => a.toLowerCase() === v) || v).filter(Boolean);
         };
 
@@ -102,11 +103,14 @@ const getJobs = async (req, res) => {
         // Skills (Multi-value - "Any" match)
         if (skills) {
             const skillList = skills.split(',').map(s => s.trim());
-            // OR logic: Job must have at least one of the requested skills
-            // Since skills is JSON, we use LIKE for text matching on the JSON string
-            const skillConditions = skillList.map(s => ({
-                skills: { [Op.like]: `%${s}%` }
-            }));
+            // Since skills is JSON, we use LIKE for text matching on the casted JSON string
+            const skillConditions = skillList.map(s =>
+                Sequelize.where(
+                    Sequelize.cast(Sequelize.col('Job.skills'), 'TEXT'),
+                    { [Op.like]: `%${s}%` }
+                )
+            );
+
             // Add to AND conditions (Job must match existing 'where' AND (skill1 OR skill2 ...))
             where[Op.and] = where[Op.and] || [];
             where[Op.and].push({ [Op.or]: skillConditions });
@@ -152,6 +156,7 @@ const getJobs = async (req, res) => {
             // 'recent' is default fall-through
         }
 
+        console.log(where)
         const { count, rows } = await Job.findAndCountAll({
             where,
             include: [
