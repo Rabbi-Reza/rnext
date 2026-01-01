@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Dev News</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style>
+            :root {
+                color-scheme: dark;
+                --bg: #0b0d12;
+                --surface: #10131b;
+                --surface-strong: #161a24;
+                --stroke: #1f2430;
+                --glow: rgba(84, 192, 255, 0.18);
+                --glow-strong: rgba(114, 231, 208, 0.22);
+            }
+
+            body {
+                font-family: "DM Sans", system-ui, sans-serif;
+                background-color: var(--bg);
+            }
+
+            h1,
+            h2,
+            h3,
+            .font-display {
+                font-family: "Sora", system-ui, sans-serif;
+            }
+
+            .noise {
+                background-image: radial-gradient(
+                    circle at 1px 1px,
+                    rgba(255, 255, 255, 0.07) 1px,
+                    transparent 0
+                );
+                background-size: 26px 26px;
+                opacity: 0.25;
+            }
+
+            @keyframes fadeUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(16px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .reveal {
+                opacity: 0;
+                animation: fadeUp 0.8s ease forwards;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen text-zinc-100">
+        <div class="relative overflow-hidden">
+            <div class="pointer-events-none absolute inset-0">
+                <div
+                    class="absolute -left-32 top-10 h-80 w-80 rounded-full"
+                    style="
+                        background: radial-gradient(
+                            circle,
+                            var(--glow-strong),
+                            transparent 70%
+                        );
+                    "
+                ></div>
+                <div
+                    class="absolute right-0 top-52 h-72 w-72 rounded-full"
+                    style="
+                        background: radial-gradient(
+                            circle,
+                            var(--glow),
+                            transparent 70%
+                        );
+                    "
+                ></div>
+                <div class="noise absolute inset-0"></div>
+            </div>
+
+            <div class="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+                <header
+                    class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+                >
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-cyan-300 via-emerald-300 to-sky-400 p-[1px] shadow-[0_0_30px_rgba(94,234,212,0.25)]"
+                        >
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-[15px] bg-[#0b0d12] text-lg font-semibold text-white"
+                            >
+                                DN
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-semibold text-white">
+                                Dev News
+                            </h1>
+                            <p class="mt-1 text-sm text-zinc-400">
+                                Signals from the builders shaping tomorrow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex w-full items-center md:max-w-md">
+                        <div class="relative w-full">
+                            <span
+                                class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    class="h-5 w-5"
+                                >
+                                    <circle
+                                        cx="11"
+                                        cy="11"
+                                        r="7"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                    />
+                                    <path
+                                        d="M20 20L17 17"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                    />
+                                </svg>
+                            </span>
+                            <input
+                                type="search"
+                                placeholder="Search stories, tags, authors"
+                                class="w-full rounded-2xl border border-white/10 bg-white/5 py-3 pl-12 pr-4 text-sm text-white placeholder:text-zinc-500 shadow-[0_10px_30px_rgba(10,10,20,0.35)] outline-none ring-1 ring-transparent transition focus:border-cyan-300/40 focus:ring-cyan-300/20"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="rounded-full bg-white/10 p-[2px]">
+                            <img
+                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&w=96&h=96&q=80"
+                                alt="User avatar"
+                                class="h-12 w-12 rounded-full object-cover"
+                            />
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">
+                                Alex Rivera
+                            </p>
+                            <p class="text-xs text-zinc-400">Pro member</p>
+                        </div>
+                    </div>
+                </header>
+
+                <main class="mt-12">
+                    <div
+                        class="flex flex-wrap items-center justify-between gap-4"
+                    >
+                        <div>
+                            <h2 class="text-xl font-semibold text-white">
+                                Trending Today
+                            </h2>
+                            <p class="mt-1 text-sm text-zinc-400">
+                                Fresh signals from product teams and indie
+                                builders.
+                            </p>
+                        </div>
+                    </div>
+
+                    <section
+                        class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                    >
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent p-[1px] reveal"
+                            style="animation-delay: 0ms"
+                        >
+                            <article
+                                class="group h-full rounded-2xl border border-white/10 bg-[var(--surface)] p-5 shadow-[0_24px_50px_rgba(5,8,16,0.55)] transition hover:-translate-y-1 hover:border-cyan-300/40"
+                            >
+                                <div
+                                    class="aspect-video overflow-hidden rounded-xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                                        alt="Circuit board"
+                                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=facearea&w=64&h=64&q=80"
+                                            alt="Author"
+                                            class="h-7 w-7 rounded-full object-cover"
+                                        />
+                                        <span>Jules Wang</span>
+                                    </div>
+                                    <span>1 day ago</span>
+                                </div>
+                                <h3
+                                    class="mt-3 text-lg font-semibold text-white"
+                                >
+                                    Why inference stacks are redesigning the dev
+                                    workflow
+                                </h3>
+                                <div
+                                    class="mt-4 flex flex-wrap gap-2 text-[11px] text-cyan-200/80"
+                                >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#ai</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#infra</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#workflow</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-emerald-300"
+                                            >
+                                                <path
+                                                    d="M12 4L5 11H9V20H15V11H19L12 4Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            2.4K
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-rose-300"
+                                            >
+                                                <path
+                                                    d="M12 20L19 13H15V4H9V13H5L12 20Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            120
+                                        </span>
+                                    </div>
+                                    <span class="flex items-center gap-1">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            class="h-4 w-4 text-zinc-500"
+                                        >
+                                            <path
+                                                d="M2 12C4.5 7 7.5 5 12 5C16.5 5 19.5 7 22 12C19.5 17 16.5 19 12 19C7.5 19 4.5 17 2 12Z"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="3"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                        </svg>
+                                        1M views
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent p-[1px] reveal"
+                            style="animation-delay: 120ms"
+                        >
+                            <article
+                                class="group h-full rounded-2xl border border-white/10 bg-[var(--surface)] p-5 shadow-[0_24px_50px_rgba(5,8,16,0.55)] transition hover:-translate-y-1 hover:border-cyan-300/40"
+                            >
+                                <div
+                                    class="aspect-video overflow-hidden rounded-xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                                        alt="Developer laptop"
+                                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=facearea&w=64&h=64&q=80"
+                                            alt="Author"
+                                            class="h-7 w-7 rounded-full object-cover"
+                                        />
+                                        <span>Mara Chen</span>
+                                    </div>
+                                    <span>3 hours ago</span>
+                                </div>
+                                <h3
+                                    class="mt-3 text-lg font-semibold text-white"
+                                >
+                                    Designing observability for AI product teams
+                                    at scale
+                                </h3>
+                                <div
+                                    class="mt-4 flex flex-wrap gap-2 text-[11px] text-cyan-200/80"
+                                >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#ops</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#metrics</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#scale</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-emerald-300"
+                                            >
+                                                <path
+                                                    d="M12 4L5 11H9V20H15V11H19L12 4Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            3.1K
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-rose-300"
+                                            >
+                                                <path
+                                                    d="M12 20L19 13H15V4H9V13H5L12 20Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            48
+                                        </span>
+                                    </div>
+                                    <span class="flex items-center gap-1">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            class="h-4 w-4 text-zinc-500"
+                                        >
+                                            <path
+                                                d="M2 12C4.5 7 7.5 5 12 5C16.5 5 19.5 7 22 12C19.5 17 16.5 19 12 19C7.5 19 4.5 17 2 12Z"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="3"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                        </svg>
+                                        642K views
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent p-[1px] reveal"
+                            style="animation-delay: 240ms"
+                        >
+                            <article
+                                class="group h-full rounded-2xl border border-white/10 bg-[var(--surface)] p-5 shadow-[0_24px_50px_rgba(5,8,16,0.55)] transition hover:-translate-y-1 hover:border-cyan-300/40"
+                            >
+                                <div
+                                    class="aspect-video overflow-hidden rounded-xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80"
+                                        alt="Modern workspace"
+                                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=facearea&w=64&h=64&q=80"
+                                            alt="Author"
+                                            class="h-7 w-7 rounded-full object-cover"
+                                        />
+                                        <span>Imani Okoye</span>
+                                    </div>
+                                    <span>2 days ago</span>
+                                </div>
+                                <h3
+                                    class="mt-3 text-lg font-semibold text-white"
+                                >
+                                    From Figma to production: the new generation
+                                    of component labs
+                                </h3>
+                                <div
+                                    class="mt-4 flex flex-wrap gap-2 text-[11px] text-cyan-200/80"
+                                >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#design</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#system</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#collab</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-emerald-300"
+                                            >
+                                                <path
+                                                    d="M12 4L5 11H9V20H15V11H19L12 4Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            1.8K
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-rose-300"
+                                            >
+                                                <path
+                                                    d="M12 20L19 13H15V4H9V13H5L12 20Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            92
+                                        </span>
+                                    </div>
+                                    <span class="flex items-center gap-1">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            class="h-4 w-4 text-zinc-500"
+                                        >
+                                            <path
+                                                d="M2 12C4.5 7 7.5 5 12 5C16.5 5 19.5 7 22 12C19.5 17 16.5 19 12 19C7.5 19 4.5 17 2 12Z"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="3"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                        </svg>
+                                        410K views
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent p-[1px] reveal"
+                            style="animation-delay: 360ms"
+                        >
+                            <article
+                                class="group h-full rounded-2xl border border-white/10 bg-[var(--surface)] p-5 shadow-[0_24px_50px_rgba(5,8,16,0.55)] transition hover:-translate-y-1 hover:border-cyan-300/40"
+                            >
+                                <div
+                                    class="aspect-video overflow-hidden rounded-xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=80"
+                                        alt="Neon workspace"
+                                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=facearea&w=64&h=64&q=80"
+                                            alt="Author"
+                                            class="h-7 w-7 rounded-full object-cover"
+                                        />
+                                        <span>Ravi Patel</span>
+                                    </div>
+                                    <span>4 days ago</span>
+                                </div>
+                                <h3
+                                    class="mt-3 text-lg font-semibold text-white"
+                                >
+                                    The quiet rise of private model sandboxes
+                                    for startups
+                                </h3>
+                                <div
+                                    class="mt-4 flex flex-wrap gap-2 text-[11px] text-cyan-200/80"
+                                >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#security</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#startup</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#ml</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-emerald-300"
+                                            >
+                                                <path
+                                                    d="M12 4L5 11H9V20H15V11H19L12 4Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            980
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-rose-300"
+                                            >
+                                                <path
+                                                    d="M12 20L19 13H15V4H9V13H5L12 20Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            21
+                                        </span>
+                                    </div>
+                                    <span class="flex items-center gap-1">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            class="h-4 w-4 text-zinc-500"
+                                        >
+                                            <path
+                                                d="M2 12C4.5 7 7.5 5 12 5C16.5 5 19.5 7 22 12C19.5 17 16.5 19 12 19C7.5 19 4.5 17 2 12Z"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="3"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                        </svg>
+                                        190K views
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent p-[1px] reveal"
+                            style="animation-delay: 480ms"
+                        >
+                            <article
+                                class="group h-full rounded-2xl border border-white/10 bg-[var(--surface)] p-5 shadow-[0_24px_50px_rgba(5,8,16,0.55)] transition hover:-translate-y-1 hover:border-cyan-300/40"
+                            >
+                                <div
+                                    class="aspect-video overflow-hidden rounded-xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                                        alt="Team collaboration"
+                                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=facearea&w=64&h=64&q=80"
+                                            alt="Author"
+                                            class="h-7 w-7 rounded-full object-cover"
+                                        />
+                                        <span>Lena Brooks</span>
+                                    </div>
+                                    <span>2 weeks ago</span>
+                                </div>
+                                <h3
+                                    class="mt-3 text-lg font-semibold text-white"
+                                >
+                                    The product ops playbook for distributed AI
+                                    teams
+                                </h3>
+                                <div
+                                    class="mt-4 flex flex-wrap gap-2 text-[11px] text-cyan-200/80"
+                                >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#remote</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#product</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#aiops</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-emerald-300"
+                                            >
+                                                <path
+                                                    d="M12 4L5 11H9V20H15V11H19L12 4Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            5.2K
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-rose-300"
+                                            >
+                                                <path
+                                                    d="M12 20L19 13H15V4H9V13H5L12 20Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            210
+                                        </span>
+                                    </div>
+                                    <span class="flex items-center gap-1">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            class="h-4 w-4 text-zinc-500"
+                                        >
+                                            <path
+                                                d="M2 12C4.5 7 7.5 5 12 5C16.5 5 19.5 7 22 12C19.5 17 16.5 19 12 19C7.5 19 4.5 17 2 12Z"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="3"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                        </svg>
+                                        2.1M views
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div
+                            class="rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent p-[1px] reveal"
+                            style="animation-delay: 600ms"
+                        >
+                            <article
+                                class="group h-full rounded-2xl border border-white/10 bg-[var(--surface)] p-5 shadow-[0_24px_50px_rgba(5,8,16,0.55)] transition hover:-translate-y-1 hover:border-cyan-300/40"
+                            >
+                                <div
+                                    class="aspect-video overflow-hidden rounded-xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=800&q=80"
+                                        alt="City skyline"
+                                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                                    />
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=facearea&w=64&h=64&q=80"
+                                            alt="Author"
+                                            class="h-7 w-7 rounded-full object-cover"
+                                        />
+                                        <span>Samira Noor</span>
+                                    </div>
+                                    <span>2 years ago</span>
+                                </div>
+                                <h3
+                                    class="mt-3 text-lg font-semibold text-white"
+                                >
+                                    How agent runtimes are changing shipping
+                                    velocity
+                                </h3>
+                                <div
+                                    class="mt-4 flex flex-wrap gap-2 text-[11px] text-cyan-200/80"
+                                >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#agents</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#release</span
+                                    >
+                                    <span
+                                        class="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-2 py-1"
+                                        >#velocity</span
+                                    >
+                                </div>
+                                <div
+                                    class="mt-4 flex items-center justify-between text-xs text-zinc-400"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-emerald-300"
+                                            >
+                                                <path
+                                                    d="M12 4L5 11H9V20H15V11H19L12 4Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            7.8K
+                                        </span>
+                                        <span class="flex items-center gap-1">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                class="h-4 w-4 text-rose-300"
+                                            >
+                                                <path
+                                                    d="M12 20L19 13H15V4H9V13H5L12 20Z"
+                                                    fill="currentColor"
+                                                />
+                                            </svg>
+                                            403
+                                        </span>
+                                    </div>
+                                    <span class="flex items-center gap-1">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            class="h-4 w-4 text-zinc-500"
+                                        >
+                                            <path
+                                                d="M2 12C4.5 7 7.5 5 12 5C16.5 5 19.5 7 22 12C19.5 17 16.5 19 12 19C7.5 19 4.5 17 2 12Z"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="3"
+                                                stroke="currentColor"
+                                                stroke-width="1.4"
+                                            />
+                                        </svg>
+                                        3.9M views
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
